@@ -1,0 +1,61 @@
+.accordion details {
+  border: 1px solid var(--dark-color);
+}
+
+.accordion details + details {
+  margin-top: 16px;
+}
+
+.accordion details summary {
+  position: relative;
+  padding: 16px 48px 16px 16px;
+  cursor: pointer;
+  list-style: none;
+  background-color: var(--light-color);
+  transition: background-color 0.2s;
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details summary:hover,
+.accordion details[open] summary {
+  background-color: var(--background-color);
+}
+
+.accordion details summary:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.accordion details summary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 18px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid;
+  border-width: 2px 2px 0 0;
+  transform: translateY(-50%) rotate(135deg);
+  transition: transform 0.2s;
+}
+
+.accordion details[open] summary::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.accordion details .accordion-item-body {
+  padding: 16px;
+}
+
+.accordion details summary > *,
+.accordion details .accordion-item-body > :first-child {
+  margin-top: 0;
+}
+
+.accordion details summary > *,
+.accordion details .accordion-item-body > :last-child {
+  margin-bottom: 0;
+}
